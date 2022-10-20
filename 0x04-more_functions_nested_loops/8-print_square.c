@@ -2,6 +2,7 @@ i#include "main.h"
 /**
  *  ** print_square - prints square
  *    *   * @size: parameter
+ *
  *      *    * Return: size of the square
  **/
 void print_square(int size)
@@ -24,7 +25,6 @@ void print_square(int size)
 			for (hash2 = 1; hash2 < size; hash2++)
 
 
-
 			{
 
 				_putchar('#');
@@ -41,9 +41,10 @@ void print_square(int size)
 
 	else
 
-	{
 
+	{
 		_putchar('\n');
+
 	}
 
 }
