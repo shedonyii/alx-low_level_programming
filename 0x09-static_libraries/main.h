@@ -1,4 +1,4 @@
-fndef MAIN_H
+#ifndef MAIN_H
 
 #define MAIN_H
 
@@ -42,4 +42,4 @@ char *_strpbrk(char *s, char *accept);
 
 char *_strstr(char *haystack, char *needle);
 
-#endifi
+#endif
