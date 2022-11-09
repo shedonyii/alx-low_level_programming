@@ -1,53 +1,40 @@
-#include "main.h"
-/**
- *  * len - returns lenth of str
- *   * @str: string counted
- *    * Return: returns the length
- **/
-
-int len(char *str)
-{
-	int len = 0;
-	if (str != NULL)
-	{
-		while (str[len])
-			len++;
-	}
-	return (len);
-
-}
+#include "holberton.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- *  * argstostr - a function that concatenates all the arguments of your program
- *   * @ac: count of args passed to the function
- *    * @av:array of arguments
- *      * Return: pointer to the new string
+ * argstostr -  a function that concatenates all the arguments of your program.
+ * @ac : int
+ * @av : array
+ * Return: array
  **/
 
 char *argstostr(int ac, char **av)
 {
-	char *new_string = NULL;
-	int k = 0, i = ac, j, sum = 0, temp = 0;
+	int x, y, i, j, l = 0, a = 0;
+
+	char *s;
+
 	if (ac == 0 || av == NULL)
 		return (NULL);
-	while (ac--)
-		sum += (len(av[ac]) + 1);
-	new_string = (char *) malloc(sum + 1);
-	if (new_string != NULL}
+	for (i = 0; (i < ac); i++)
 	{
-		while (k < i)
-		{
-			for (j = 0; av[k][j] != '\0'; j++)
-		new_string[j + temp] = av[k][j];
-			new_string[temp + j] = '\n';
-			temp += (j + 1);
-			k++;
-		}
-		new_string[temp] = '\0';
+		for (j = 0; av[i][j] != '\0'; j++)
+			l++;
+		l++;
 	}
-	else
-	{
+	s = malloc(sizeof(char) * l + 1);
+	if (s == NULL)
 		return (NULL);
+	for (x = 0; x < ac ; x++)
+	{
+		for (y = 0; av[x][y] != '\0'; y++)
+		{
+			s[a] = av[x][y];
+			a++;
+		}
+		s[a++] = '\n';
 	}
-	return (new_string);
+	s[a] = '\0';
+	return (s);
 }
