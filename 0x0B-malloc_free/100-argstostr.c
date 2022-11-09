@@ -1,38 +1,79 @@
-#include "holberton.h"
-#include <stdio.h>
+#include "main.h"
+
 #include <stdlib.h>
+
 /**
-*argstostr -  a function that concatenates all the arguments of your program.
- *   *@ac : int
- *    *@av : array
- *     *Return: array
+ *  * argstostr - concatenates all the arguments of a program.
+ *   * @ac: argument count.
+ *    * @av: argument vector.
+ *     * Return: aout
  **/
+
 char *argstostr(int ac, char **av)
+
 {
-	int x, y, i, j, l = 0, a = 0;
-	char *s;
 
-	if (ac == 0 || av == NULL)
+	char *aout;
+
+	int c, i, j, ia;
+
+	if (ac == 0)
+
 		return (NULL);
-	for (i = 0; (i < ac); i++)
+
+	for (c = i = 0; i < ac; i++)
+
 	{
+
+		if (av[i] == NULL)
+
+			return (NULL);
+
 		for (j = 0; av[i][j] != '\0'; j++)
-			l++;
-		l++;
+
+			c++;
+
+		c++;
+
 	}
 
-	s = malloc(sizeof(char) * l + 1);
-	if (s == NULL)
-		return (NULL);
-	for (x = 0; x < ac ; x++)
+	aout = malloc((c + 1) * sizeof(char));
+
+	if (aout == NULL)
+
 	{
-		for (y = 0; av[x][y] != '\0'; y++)
-		{
-			s[a] = av[x][y];
-			a++;
-		}
-		s[a++] = '\n';
+
+		free(aout);
+
+		return (NULL);
+
 	}
-	s[a] = '\0';
-	return (s);
+
+	for (i = j = ia = 0; ia < c; j++, ia++)
+
+	{
+
+		if (av[i][j] == '\0')
+
+		{
+
+			aout[ia] = '\n';
+
+			i++;
+
+			ia++;
+
+			j = 0;
+
+		}
+
+		if (ia < c - 1)
+
+			aout[ia] = av[i][j];
+
+	}
+
+	aout[ia] = '\0';
+
+	return (aout);
 }
