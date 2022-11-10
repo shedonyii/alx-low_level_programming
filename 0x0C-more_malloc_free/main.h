@@ -1,6 +1,6 @@
-#ifndef MAIN_H_
+#ifndef MAIN_H
 
-#define MAIN_H_
+#define MAIN_H
 
 int _putchar(char c);
 
@@ -14,4 +14,4 @@ int *array_range(int min, int max);
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
-#endif /* MAIN_H_ */
+#endif /*MAIN_H*/
