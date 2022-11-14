@@ -1,69 +1,27 @@
-#include "main.h"
-
 #include <stdlib.h>
 
+#include "dog.h"
+
 /**
- *  ** string_nconcat - concatenates two strings
- *   ** @s1: first string
- *    ** @s2: second string
- *     ** @n: the number of bytes to include of @s2
- *      ** Return: newly allocated space in memory;
- *       ** NULL if the function fails
+ *  ** init_dog - initialize a variable of type struct dog
+ *   ** @d: struct to initialize
+ *    ** @name: dog's name
+ *     ** @age: dog's age
+ *      ** @owner: dog's owner
+ *       ** Return: 0
  **/
 
-char *string_nconcat(char *s1, char *s2, unsigned int n)
+void init_dog(struct dog *d, char *name, float age, char *owner)
 
 {
 
-	char *ar;
+	if (d == NULL)
 
-	unsigned int i = 0;
+		return;
 
-	unsigned int j = 0;
+	d->name = name;
 
-	unsigned int m;
+	d->age = age;
 
-	unsigned int p;
-
-	unsigned int k = 0;
-
-	unsigned int len;
-
-	if (s1 == NULL)
-
-		s1 = "";
-
-	if (s2 == NULL)
-
-		s2 = "";
-
-	while (s1[i])
-
-		i++;
-
-	while (s2[j])
-
-		j++;
-
-	if (j > n)
-
-		j = n;
-
-	len = i + j;
-
-	ar = malloc(sizeof(char) * (len + 1));
-
-	if (ar == NULL)
-
-		return (NULL);
-	for (p = 0; p < i; p++)
-
-			ar[k++] = s1[p];
-
-	for (m = 0; m < j; m++)
-
-		ar[k++] = s2[m];
-
-	ar[k] = '\0';												
-	return (ar);
+	d->owner = owner;
 }
