@@ -1,25 +1,35 @@
 #include "lists.h"
-
 /**
- *  * list_len - returns the number of elements in a linked lists
- *   * @h: linked list of type listint_t to traverse
- *     * Return: number of elements in a linked list_t list.
+ *  * print_list - prints all the elements of a list_t list.
+ *   * @h: singly linked list.
+ *    * Return: number of elements in the list.
  **/
 
-size_t list_len(const list_t *h)
+size_t print_list(const list_t *h)
 
 {
 
-	size_t num = 0;
+	size_t nelem;
 
-	while (h)
+	nelem = 0;
+
+	while (h != NULL)
 
 	{
 
-		num++;
+		if (h->str == NULL)
+
+			printf("[%d] %s\n", 0, "(nil)");
+
+		else
+
+			printf("[%d] %s\n", h->len, h->str);
 
 		h = h->next;
+
+		nelem++;
+
 	}
 
-	return (num);
+	return (nelem);
 }
